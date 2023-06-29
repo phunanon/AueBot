@@ -1,4 +1,5 @@
 {
+  "name": "AueBot",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {

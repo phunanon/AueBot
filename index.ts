@@ -8,7 +8,7 @@ const bot = new Client({
   ],
   partials: [Partials.Channel],
 });
-const token = process.env['DISCORD_BOT_SECRET'];
+const token = `OTMxNDgxNjYxMDM4ODA0OTkz.GZeNNb.QbuHMrdFRTCoG5dl8vdVMoSYAz0JCso47jq_tI`;
 
 const verses = `Think sensibly for Aue;
 believe in it & your abilities.
@@ -52,10 +52,14 @@ bot.on('messageCreate', async (message: Message) => {
     return;
   }
 
-  await channel.send(
-    'verses mentioned:\n' +
-      mentionedVersesVN.map(([v, n]) => `_${v}_ ${verses[n]}`).join('\n')
-  );
+  try {
+    await channel.send(
+      'verses mentioned:\n' +
+        mentionedVersesVN.map(([v, n]) => `_${v}_ ${verses[n]}`).join('\n')
+    );
+  } catch (e) {
+    console.error(e, channel);
+  }
 });
 
 bot.login(token);

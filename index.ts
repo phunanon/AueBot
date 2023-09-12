@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { Client, GatewayIntentBits, Partials, Message } from 'discord.js';
 
 const bot = new Client({
@@ -8,7 +9,6 @@ const bot = new Client({
   ],
   partials: [Partials.Channel],
 });
-const token = `OTMxNDgxNjYxMDM4ODA0OTkz.GZeNNb.QbuHMrdFRTCoG5dl8vdVMoSYAz0JCso47jq_tI`;
 
 const verses = `Think sensibly for Aue;
 believe in it & your abilities.
@@ -62,5 +62,5 @@ bot.on('messageCreate', async (message: Message) => {
   }
 });
 
-bot.login(token);
+bot.login(process.env.token);
 console.log('ready');
